@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'UC2-App'
+copyright = '2023, Marketplace'
+author = 'Giovanni Viciconte'
 
 release = '0.1'
 version = '0.1.0'
@@ -26,7 +26,7 @@ intersphinx_mapping = {
 intersphinx_disabled_domains = ['std']
 
 templates_path = ['_templates']
-
+numfig = True
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
