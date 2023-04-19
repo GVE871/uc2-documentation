@@ -1,5 +1,5 @@
-Description of the workflow steps
-=================================
+Description of the workflow
+===========================
 
 .. _parameter_e:
 
