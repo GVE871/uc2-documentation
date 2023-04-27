@@ -1,3 +1,7 @@
+===========
+Description
+===========
+
 Description of the workflow
 ===========================
 
@@ -28,9 +32,38 @@ Finally, the same constitutive properties are used for a full multiphase simulat
 allowed to settle under gravity for the measurement of its spread.
 
 
-The Paste Levelling App is built on top of this workflow, automating the three steps into a seamless sequence,
-with no user input in-between each of the steps. To facilitate demonstration, the final levelling simulation 
-is done with a two-dimensional version which can be simulated in a few minutes, instead of the days to weeks 
-it can take for the full three-dimensional simulation.
 
 
+Description of the app
+======================
+
+The Paste Levelling Application streamlines the workflow discussed in the previous section by automating 
+the three steps without requiring any user input between them. The application is illustrated in the figure
+below and is built using a series of Python modules to handle the different stages of the workflow.
+
+.. figure:: images/uc2_app.png
+   :width: 600
+   :align: center
+
+The app consists internally in a series of Python modules which handle the different steps of the workflow. 
+
+Parameter optimization
+-----------------------
+The first step, parameter optimization, generates the output with the constitutive properties used in the OpenFOAM 
+simulations of both the rheometer and levelling steps. 
+
+Rheometer simulations
+---------------------
+The rheometer simulations are performed using a Python script that carries out a series of OpenFOAM simulations over the required 
+range of frequencies and amplitudes to replicate the experimental rheometer data. 
+In this step, we evaluate the ability of the Giesekus model, with parameters obtained in the previous step, to reproduce paste moduli and viscosity.
+
+Simulation
+----------
+
+Finally, the levelling simulation is a pre-prepared OpenFOAM case setup that requires only the appropriate constitutive properties to run.
+This step uses a REST API to communicate with the MarketPlace platform and the HPC app, which handles the parallel remote job. 
+
+
+
+The graphical user interface is handled via Flask, a Python-based web application framework. 
